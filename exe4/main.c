@@ -18,7 +18,7 @@ void btn_callback(uint gpio, uint32_t events) {
     //   flag_r = 2;
     // }
   } if (gpio == BTN_V) {
-      if (events == 0x4) { 
+      if (events == 0x8) { 
         flag_v = 1;
       } //else if (events == 0x8) { 
         //flag_v = 2;
@@ -48,7 +48,7 @@ int main() {
     BTN_R, GPIO_IRQ_EDGE_FALL, true, &btn_callback);
   
   gpio_set_irq_enabled(
-    BTN_V, GPIO_IRQ_EDGE_FALL, true);
+    BTN_V, GPIO_IRQ_EDGE_RISE, true);
 
   while (true) {
     if (flag_r == 1 && aceso_r == 0) {
