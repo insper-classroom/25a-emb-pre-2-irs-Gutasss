@@ -45,10 +45,10 @@ int main() {
   gpio_pull_up(BTN_V);
 
   gpio_set_irq_enabled_with_callback(
-    BTN_R, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &btn_callback);
+    BTN_R, GPIO_IRQ_EDGE_FALL, true, &btn_callback);
   
   gpio_set_irq_enabled(
-    BTN_V, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true);
+    BTN_V, GPIO_IRQ_EDGE_FALL, true);
 
   while (true) {
     if (flag_r == 1 && aceso_r == 0) {
